@@ -5,6 +5,8 @@ Be sure you have minitorch installed in you Virtual Env.
 
 import minitorch
 
+import time
+
 
 def RParam(*shape):
     r = 2 * (minitorch.rand(shape) - 0.5)
@@ -45,8 +47,8 @@ class Linear(minitorch.Module):
         # END ASSIGN2.5
 
 
-def default_log_fn(epoch, total_loss, correct, losses):
-    print("Epoch ", epoch, " loss ", total_loss, "correct", correct)
+def default_log_fn(epoch, total_loss, correct, losses, time_avg):
+    print("Epoch ", epoch, " loss ", total_loss, " correct ", correct, " average_time_per_epoch ", time_avg)
 
 
 class TensorTrain:
@@ -71,6 +73,7 @@ class TensorTrain:
         y = minitorch.tensor(data.y)
 
         losses = []
+        time_start = time.perf_counter()
         for epoch in range(1, self.max_epochs + 1):
             total_loss = 0.0
             correct = 0
@@ -90,14 +93,15 @@ class TensorTrain:
 
             # Logging
             if epoch % 10 == 0 or epoch == max_epochs:
+                time_avg = (time.perf_counter() - time_start) / epoch
                 y2 = minitorch.tensor(data.y)
                 correct = int(((out.detach() > 0.5) == y2).sum()[0])
-                log_fn(epoch, total_loss, correct, losses)
+                log_fn(epoch, total_loss, correct, losses, time_avg)
 
 
 if __name__ == "__main__":
     PTS = 50
-    HIDDEN = 2
+    HIDDEN = 10
     RATE = 0.5
-    data = minitorch.datasets["Simple"](PTS)
+    data = minitorch.datasets["Xor"](PTS)
     TensorTrain(HIDDEN).train(data, RATE)

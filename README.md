@@ -1,12 +1,131 @@
-# minitorch
-The full minitorch student suite. 
+## Task 1.5
 
+### Simple dataset
 
-To access the autograder: 
+Hyperparameters:
 
-* Module 0: https://classroom.github.com/a/qDYKZff9
-* Module 1: https://classroom.github.com/a/6TiImUiy
-* Module 2: https://classroom.github.com/a/0ZHJeTA0
-* Module 3: https://classroom.github.com/a/U5CMJec1
-* Module 4: https://classroom.github.com/a/04QA6HZK
-* Quizzes: https://classroom.github.com/a/bGcGc12k
+```python
+PTS = 50
+HIDDEN = 2
+RATE = 0.5
+data = minitorch.datasets["Simple"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Simple training log](logs/module1_simple.txt)
+
+### Diag dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 2
+RATE = 0.5
+data = minitorch.datasets["Diag"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Diag training log](logs/module1_diag.txt)
+
+### Split dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 5
+RATE = 0.5
+data = minitorch.datasets["Split"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Split training log](logs/module1_split.txt)
+
+### Xor dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 10
+RATE = 0.5
+data = minitorch.datasets["Xor"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Xor training log](logs/module1_xor.txt)
+
+## Task 2.5
+
+### Simple dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 2
+RATE = 0.5
+data = minitorch.datasets["Simple"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Simple training log](logs/module2_simple.txt)
+
+### Diag dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 2
+RATE = 0.5
+data = minitorch.datasets["Diag"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Diag training log](logs/module2_diag.txt)
+
+### Split dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 5
+RATE = 0.5
+data = minitorch.datasets["Split"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Split training log](logs/module2_split.txt)
+
+### Xor dataset
+
+Hyperparameters:
+
+```python
+PTS = 50
+HIDDEN = 10
+RATE = 0.5
+data = minitorch.datasets["Xor"](PTS)
+ScalarTrain(HIDDEN).train(data, RATE, max_epochs=500)
+```
+
+Training logs are available here:
+
+[Xor training log](logs/module2_xor.txt)
